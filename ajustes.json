@@ -1,0 +1,28 @@
+{
+  "lowStockThreshold": 5,
+  "storeName": "Carlos El Topo Que Gira",
+  "aboutContent": "Nosotros somos una zapataria con marca propia, con un buen estilo y comodidad, manejamos los mejores precios de medellin, y hacemos envios y entregas online, nacimos de un gran empresaio, el cual vio una gran vision en esto, y le cogio amor, por tu comidad, y por la mia...",
+  "navOrder": [
+    "catalogo",
+    "favoritos",
+    "carrito",
+    "mis-pedidos",
+    "acerca",
+    "pedidos",
+    "venta",
+    "mis-ventas",
+    "todas-ventas",
+    "productos",
+    "usuarios",
+    "configuracion"
+  ],
+  "theme": {
+    "bg": "#120a18",
+    "card": "#231030",
+    "accent": "#ff4fd8",
+    "accent2": "#b455ff",
+    "brand": "#ff4fd8",
+    "text": "#f2e8fb"
+  },
+  "pointsPerThousand": 1
+}

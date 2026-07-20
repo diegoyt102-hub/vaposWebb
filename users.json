@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "Diego",
+    "email": "diegoyt102@gmail.com",
+    "password": "3jR7aiIONRYuehH89TMHsq4DoaFWHgv7p4D4odODpsw=",
+    "role": "owner",
+    "status": "approved",
+    "createdAt": "2026-07-17T19:59:19.384Z",
+    "emailVerified": true,
+    "ip": "desconocida (cuenta previa)",
+    "points": 0,
+    "sessionsInvalidatedAt": 0
+  },
+  {
+    "id": 5,
+    "name": "Gomez",
+    "email": "diegigay050@gmail.com",
+    "password": "vVCr8MewJx+5805l/EbBxbOCKtb5EeUa6jwc46Uvna0=",
+    "role": "admin",
+    "status": "approved",
+    "emailVerified": true,
+    "ip": "::1",
+    "createdAt": "2026-07-18T12:19:47.768Z",
+    "points": 0,
+    "sessionsInvalidatedAt": 0
+  },
+  {
+    "id": 7,
+    "name": "Arismendy",
+    "email": "crjmaicol@gmail.com",
+    "password": "A+W5nIkkZhDXDI5GdP3fL0pV7GfqB80kaRb64k3vYOg=",
+    "role": "cliente",
+    "status": "approved",
+    "emailVerified": true,
+    "ip": "::1",
+    "createdAt": "2026-07-20T02:25:05.397Z",
+    "points": 0,
+    "sessionsInvalidatedAt": 0
+  },
+  {
+    "id": 8,
+    "name": "Maicol",
+    "email": "diegoyt241@gmail.com",
+    "password": "1oCJx35l7ofrlQT2ghIon23LdY+uGVWoJAGKZ8XLLi8=",
+    "role": "cliente",
+    "status": "approved",
+    "emailVerified": true,
+    "ip": "::1",
+    "createdAt": "2026-07-20T02:50:04.445Z",
+    "points": 1585,
+    "sessionsInvalidatedAt": 0
+  }
+]

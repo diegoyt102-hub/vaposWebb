@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "action": "delete",
+    "targetType": "category",
+    "targetId": 1,
+    "targetLabel": "Vapos",
+    "payload": null,
+    "status": "rechazada",
+    "requestedById": 5,
+    "requestedByName": "Gomez",
+    "createdAt": "2026-07-18T12:20:52.979Z",
+    "resolvedAt": "2026-07-18T12:21:11.498Z",
+    "resolvedByName": "Diego"
+  },
+  {
+    "id": 2,
+    "action": "delete",
+    "targetType": "product",
+    "targetId": 9,
+    "targetLabel": "Vibradores",
+    "payload": null,
+    "status": "rechazada",
+    "requestedById": 5,
+    "requestedByName": "Gomez",
+    "createdAt": "2026-07-18T13:34:37.367Z",
+    "resolvedAt": "2026-07-18T13:35:12.176Z",
+    "resolvedByName": "Diego"
+  },
+  {
+    "id": 3,
+    "action": "delete",
+    "targetType": "category",
+    "targetId": 1,
+    "targetLabel": "Vapos",
+    "payload": null,
+    "status": "rechazada",
+    "requestedById": 5,
+    "requestedByName": "Gomez",
+    "createdAt": "2026-07-20T02:27:39.913Z",
+    "resolvedAt": "2026-07-20T02:27:52.302Z",
+    "resolvedByName": "Diego"
+  },
+  {
+    "id": 4,
+    "action": "delete",
+    "targetType": "product",
+    "targetId": 12,
+    "targetLabel": "Bugatti Tripple Ice",
+    "payload": null,
+    "status": "aprobada",
+    "requestedById": 5,
+    "requestedByName": "Gomez",
+    "createdAt": "2026-07-20T03:03:57.139Z",
+    "resolvedAt": "2026-07-20T03:04:21.842Z",
+    "resolvedByName": "Diego"
+  },
+  {
+    "id": 5,
+    "action": "delete",
+    "targetType": "sale",
+    "targetId": 11,
+    "targetLabel": "Just Watermelon ICE",
+    "payload": null,
+    "status": "rechazada",
+    "requestedById": 5,
+    "requestedByName": "Gomez",
+    "createdAt": "2026-07-20T03:05:44.379Z",
+    "resolvedAt": "2026-07-20T03:06:33.328Z",
+    "resolvedByName": "Diego"
+  }
+]

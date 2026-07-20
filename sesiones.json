@@ -1,0 +1,62 @@
+[
+  {
+    "id": 6,
+    "userId": 8,
+    "ip": "::1",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "country": "Local",
+    "city": "Red local",
+    "createdAt": "2026-07-20T02:50:24.797Z"
+  },
+  {
+    "id": 5,
+    "userId": 7,
+    "ip": "::1",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "country": "Local",
+    "city": "Red local",
+    "createdAt": "2026-07-20T02:48:44.610Z"
+  },
+  {
+    "id": 4,
+    "userId": 1,
+    "ip": "::1",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "country": "Local",
+    "city": "Red local",
+    "createdAt": "2026-07-20T02:26:49.918Z"
+  },
+  {
+    "id": 3,
+    "userId": 7,
+    "ip": "::1",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "country": "Local",
+    "city": "Red local",
+    "createdAt": "2026-07-20T02:25:40.717Z"
+  },
+  {
+    "id": 2,
+    "userId": 5,
+    "ip": "::1",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "country": "Local",
+    "city": "Red local",
+    "createdAt": "2026-07-19T21:05:54.259Z"
+  },
+  {
+    "id": 1,
+    "userId": 6,
+    "ip": "::1",
+    "browser": "Chrome",
+    "os": "Windows 10/11",
+    "country": "Local",
+    "city": "Red local",
+    "createdAt": "2026-07-19T21:05:51.885Z"
+  }
+]

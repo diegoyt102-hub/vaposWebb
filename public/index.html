@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+ 
+  <!-- BOTÓN DE SOPORTE (discreto, esquina superior derecha) -->
+  <button class="support-fab" id="supportFab" onclick="openSupportModal()" title="Soporte">🔧</button>
+  <button class="support-fab chat-fab" id="chatFab" onclick="openChatPanel()" title="Chat">💬<span class="icon-badge" id="chatUnreadBadge" style="display:none;">0</span></button>
+ 
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">⚡ <span id="navBrandName">Tienda</span></div>
+    <div class="nav-tabs" id="navTabs"></div>
+    <div class="nav-icons">
+      <div class="notif-wrap">
+        <button class="icon-btn" onclick="toggleNotifPanel()" title="Notificaciones">🔔<span class="icon-badge" id="notifCount" style="display:none;">0</span></button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-panel-head">
+            <span>Notificaciones</span>
+            <button class="link-btn" onclick="markAllNotifsRead()">Marcar todas leídas</button>
+          </div>
+          <div id="notifList"></div>
+        </div>
+      </div>
+      <button class="icon-btn" onclick="toggleDarkMode()" title="Modo claro/oscuro" id="darkModeBtn">🌙</button>
+      <button class="icon-btn" onclick="switchAppTab('favoritos')" title="Favoritos">❤️<span class="icon-badge" id="favCount" style="display:none;">0</span></button>
+      <button class="icon-btn" onclick="switchAppTab('carrito')" title="Carrito">🛒<span class="icon-badge" id="cartCount" style="display:none;">0</span></button>
+    </div>
+    <div class="nav-user">
+      <div class="account-wrap">
+        <button class="account-btn" onclick="toggleAccountPanel()">
+          <span id="navUserName"></span>
+          <span class="role-badge" id="navUserRole"></span>
+          <span class="caret">▾</span>
+        </button>
+        <div class="account-panel" id="accountPanel">
+          <div class="account-panel-row"><strong id="accountNameDisplay"></strong></div>
+          <div class="account-panel-row category-count" id="accountEmailDisplay"></div>
+          <div class="account-panel-row"><span class="role-badge" id="accountRoleDisplay"></span></div>
+          <button class="btn-ghost full" style="margin-top:10px;" onclick="goToSecurityFromAccount()">🛡️ Seguridad de la cuenta</button>
+          <button class="btn-ghost full" style="margin-top:8px; border-color:var(--danger); color:var(--danger);" onclick="logout()">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+ 
+  <!-- AUTH -->
+  <div class="auth-wrapper" id="authWrapper">
+    <div class="auth-card">
+      <div class="auth-logo">⚡ <span id="authBrandName">Tienda</span></div>
+      <p class="auth-sub">Catálogo, pedidos y ventas en un solo lugar</p>
+ 
+      <div id="authAlert" class="alert"></div>
+ 
+      <div class="auth-tabs" id="authTabsWrap">
+        <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')">Iniciar sesión</button>
+        <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Crear cuenta</button>
+      </div>
+ 
+      <form id="loginForm" class="auth-form active">
+        <div class="field">
+          <label>Correo electrónico</label>
+          <input type="email" id="loginEmail" placeholder="tucorreo@ejemplo.com">
+        </div>
+        <div class="field">
+          <label>Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn-neon">Entrar</button>
+      </form>
+ 
+      <form id="registerForm" class="auth-form">
+        <div class="field">
+          <label>Nombre completo</label>
+          <input type="text" id="registerName" placeholder="Tu nombre">
+        </div>
+        <div class="field">
+          <label>Correo electrónico</label>
+          <input type="email" id="registerEmail" placeholder="tucorreo@ejemplo.com">
+        </div>
+        <div class="field">
+          <label>Contraseña</label>
+          <input type="password" id="registerPassword" placeholder="Mínimo 6 caracteres">
+        </div>
+        <button type="submit" class="btn-neon">Crear cuenta</button>
+      </form>
+ 
+      <!-- VERIFICACIÓN DE CORREO -->
+      <form id="verifyForm" class="auth-form">
+        <div class="verify-icon">📧</div>
+        <p class="verify-text">Enviamos un código de 6 dígitos a<br><strong id="verifyEmailLabel"></strong></p>
+        <div class="field">
+          <label>Código de verificación</label>
+          <input type="text" id="verifyCode" placeholder="000000" maxlength="6" inputmode="numeric" class="code-input">
+        </div>
+        <button type="submit" class="btn-neon">Verificar cuenta</button>
+        <button type="button" class="btn-ghost full" id="resendBtn" onclick="resendCode()">Reenviar código</button>
+      </form>
+    </div>
+  </div>
+ 
+  <!-- APP -->
+  <main class="app-wrapper" id="appWrapper">
+ 
+    <!-- CATALOGO -->
+    <section class="tab-section active" id="tab-catalogo">
+      <div class="section-head">
+        <h1>Catálogo de productos</h1>
+        <p>Haz clic en un producto para pedirlo.</p>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="catalogSearch" placeholder="🔎 Buscar productos..." oninput="renderCatalogGrid()" autocomplete="off">
+        <div class="search-suggestions" id="searchSuggestions"></div>
+      </div>
+      <div id="recommendationsBlock"></div>
+      <div id="catalogByCategory"></div>
+    </section>
+ 
+    <!-- FAVORITOS -->
+    <section class="tab-section" id="tab-favoritos">
+      <div class="section-head"><h1>❤️ Mis favoritos</h1><p>Los productos que has marcado con corazón.</p></div>
+      <div class="catalog-grid" id="favoritesGrid"></div>
+    </section>
+ 
+    <!-- CARRITO -->
+    <section class="tab-section" id="tab-carrito">
+      <div class="section-head"><h1>🛒 Mi carrito</h1><p>Revisa tus productos y realiza el pedido de una vez.</p></div>
+      <div id="cartAlert" class="alert"></div>
+      <div class="table-wrap" id="cartTable" style="margin-bottom:20px;"></div>
+      <div class="glass-card" id="cartCheckoutCard" style="display:none;">
+        <h3 class="card-title">Datos de entrega</h3>
+        <form id="cartCheckoutForm" class="form-grid">
+          <div class="field">
+            <label>Dirección de entrega</label>
+            <input type="text" id="cartAddress" placeholder="Calle, número, barrio, ciudad">
+          </div>
+          <div class="field">
+            <label>Teléfono de contacto</label>
+            <input type="text" id="cartPhone" placeholder="Ej: 3001234567">
+          </div>
+          <div class="field">
+            <label>Método de pago</label>
+            <select id="cartPaymentMethod" required>
+              <option value="">-- Seleccionar método --</option>
+              <option value="Efectivo contraentrega">Efectivo contraentrega</option>
+              <option value="Transferencia / Pago electrónico">Transferencia / Pago electrónico</option>
+            </select>
+          </div>
+          <div class="field" id="cartProofField" style="display:none;">
+            <label>Comprobante de pago</label>
+            <input type="file" id="cartProof" accept="image/*">
+          </div>
+          <div class="order-total-row" style="grid-column:1/-1;">
+            <span>Total del carrito</span>
+            <span id="cartTotal">$0</span>
+          </div>
+          <button type="submit" class="btn-neon full">Finalizar pedido</button>
+        </form>
+      </div>
+    </section>
+ 
+    <!-- MIS PEDIDOS -->
+    <section class="tab-section" id="tab-mis-pedidos">
+      <div class="section-head"><h1>Mis pedidos</h1><p>Consulta el estado de tus pedidos.</p></div>
+      <div class="table-wrap" id="myOrdersTable"></div>
+    </section>
+ 
+    <!-- PUNTOS DE FIDELIDAD -->
+    <section class="tab-section" id="tab-puntos">
+      <div class="section-head"><h1>🏆 Mis puntos</h1><p>Ganas puntos cada vez que un pedido tuyo es entregado.</p></div>
+      <div class="glass-card points-card">
+        <div class="points-balance" id="pointsBalance">0</div>
+        <p class="points-label">puntos acumulados</p>
+      </div>
+    </section>
+ 
+    <!-- SEGURIDAD (todos los roles ven las suyas) -->
+    <section class="tab-section" id="tab-seguridad">
+      <div class="section-head">
+        <h1>🛡️ Seguridad</h1>
+        <p>Tus últimos inicios de sesión. La ubicación es aproximada según tu IP.</p>
+      </div>
+      <button class="btn-ghost" style="margin-bottom:16px; border-color:var(--danger); color:var(--danger);" onclick="closeAllSessions()">Cerrar todas mis sesiones</button>
+      <div class="table-wrap" id="sessionsTable"></div>
+    </section>
+ 
+    <!-- GESTIÓN DE PEDIDOS -->
+    <section class="tab-section" id="tab-pedidos">
+      <div class="section-head"><h1>Pedidos de clientes</h1><p>Actualiza el estado de cada pedido a medida que avanza.</p></div>
+      <div class="table-wrap" id="ordersTable"></div>
+    </section>
+ 
+    <!-- ESTADÍSTICAS -->
+    <section class="tab-section" id="tab-estadisticas">
+      <div class="section-head"><h1>📊 Estadísticas</h1><p>Ventas, ingresos por producto, estado de pedidos y visitas al catálogo.</p></div>
+ 
+      <div class="glass-card form-grid" style="margin-bottom:20px;">
+        <div class="field">
+          <label>Desde</label>
+          <input type="date" id="statsFilterFrom">
+        </div>
+        <div class="field">
+          <label>Hasta</label>
+          <input type="date" id="statsFilterTo">
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <div class="action-group" style="height:100%; align-items:stretch;">
+            <button type="button" class="btn-neon" style="flex:1;" onclick="loadStats()">Filtrar</button>
+            <button type="button" class="btn-ghost" style="flex:1;" onclick="clearStatsFilter()">Limpiar</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <button type="button" class="btn-ghost full" onclick="loadStats()">🔄 Actualizar</button>
+        </div>
+      </div>
+ 
+      <div class="stats-cards" id="statsCards"></div>
+ 
+      <div class="manage-grid" style="margin-top:20px;">
+        <div class="glass-card"><h3 class="card-title">💰 Ventas por día</h3><canvas id="chartSalesByDay" height="220"></canvas></div>
+        <div class="glass-card"><h3 class="card-title">🚦 Estado de los pedidos</h3><canvas id="chartOrderStatus" height="220"></canvas></div>
+      </div>
+      <div class="manage-grid" style="margin-top:20px;">
+        <div class="glass-card"><h3 class="card-title">🏷️ Ingresos por producto</h3><canvas id="chartRevenueByProduct" height="220"></canvas></div>
+        <div class="glass-card"><h3 class="card-title">👣 Tránsito al catálogo (visitas)</h3><canvas id="chartVisits" height="220"></canvas></div>
+      </div>
+    </section>
+ 
+    <!-- REGISTRAR VENTA -->
+    <section class="tab-section" id="tab-venta">
+      <div class="section-head"><h1>Registrar venta</h1><p>Completa todos los campos para registrar una venta manual, o usa "Tus pedidos" para llenarla sola.</p></div>
+      <div id="saleAlert" class="alert"></div>
+ 
+      <button type="button" class="btn-ghost" style="margin-bottom:16px;" onclick="openMyDeliveredOrders()">📦 Tus pedidos</button>
+      <div class="from-order-banner" id="fromOrderBanner" style="display:none;">
+        Rellenando esta venta a partir del pedido #<span id="fromOrderId"></span>.
+        <button type="button" class="link-btn" onclick="clearOrderSource()">Cancelar y llenar manual</button>
+      </div>
+ 
+      <form id="saleForm" class="glass-card form-grid">
+        <input type="hidden" id="saleOrderId" value="">
+        <div class="field">
+          <label>Producto</label>
+          <select id="saleProduct" required><option value="">-- Seleccionar producto --</option></select>
+        </div>
+        <div class="field">
+          <label>Cantidad</label>
+          <input type="number" id="saleQuantity" min="1" max="1" value="1">
+        </div>
+        <div class="field">
+          <label>Vendedor</label>
+          <input type="text" id="saleVendedor" placeholder="Nombre de quien vendió">
+        </div>
+        <div class="field">
+          <label>Fecha de venta</label>
+          <input type="date" id="saleDate">
+        </div>
+        <div class="field">
+          <label>Método de pago</label>
+          <select id="salePaymentMethod" required>
+            <option value="">-- Seleccionar método --</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Electrónico">Electrónico</option>
+          </select>
+        </div>
+        <div class="field" id="proofField" style="display:none;">
+          <label>Comprobante de pago</label>
+          <input type="file" id="saleProof" accept="image/*">
+        </div>
+        <button type="submit" class="btn-neon full">Registrar venta</button>
+      </form>
+    </section>
+ 
+    <!-- MIS VENTAS -->
+    <section class="tab-section" id="tab-mis-ventas">
+      <div class="section-head"><h1>Mis ventas registradas</h1></div>
+      <div class="table-wrap" id="mySalesTable"></div>
+    </section>
+ 
+    <!-- TODAS LAS VENTAS -->
+    <section class="tab-section" id="tab-todas-ventas">
+      <div class="section-head"><h1>Todas las ventas</h1><p>Las gráficas de ventas están en la pestaña 📊 Estadísticas.</p></div>
+      <div class="table-wrap" id="allSalesTable"></div>
+    </section>
+ 
+    <!-- PRODUCTOS (admin/owner) -->
+    <section class="tab-section" id="tab-productos">
+      <div class="section-head">
+        <h1>Gestión de productos</h1>
+        <p>Crea categorías, agrega productos con imagen, precio y stock.</p>
+      </div>
+ 
+      <div class="manage-grid">
+        <div class="glass-card">
+          <h3 class="card-title">➕ Nueva categoría</h3>
+          <div id="categoryAlert" class="alert"></div>
+          <form id="categoryForm" class="stacked-form">
+            <div class="field">
+              <label>Nombre de la categoría</label>
+              <input type="text" id="categoryName" placeholder="Ej: Accesorios">
+            </div>
+            <div class="field">
+              <label>Ícono (emoji, opcional)</label>
+              <input type="text" id="categoryIcon" placeholder="🛍️" maxlength="4">
+            </div>
+            <button type="submit" class="btn-neon full">Crear categoría</button>
+          </form>
+          <div class="category-list" id="categoryList"></div>
+        </div>
+ 
+        <div class="glass-card">
+          <h3 class="card-title">📦 Nuevo producto</h3>
+          <div id="productAlert" class="alert"></div>
+          <form id="productForm" class="stacked-form" enctype="multipart/form-data">
+            <div class="field">
+              <label>Categoría</label>
+              <select id="productCategory" required><option value="">-- Seleccionar categoría --</option></select>
+            </div>
+            <div class="field">
+              <label>Nombre del producto</label>
+              <input type="text" id="productName" placeholder="Ej: Priv Bar Triple Mango">
+            </div>
+            <div class="field">
+              <label>Descripción breve</label>
+              <textarea id="productDescription" rows="3" placeholder="Describe el producto..."></textarea>
+            </div>
+            <div class="field">
+              <label>Precio</label>
+              <input type="number" id="productPrice" min="1" placeholder="25000">
+            </div>
+            <div class="field">
+              <label>Stock inicial</label>
+              <input type="number" id="productStock" min="0" placeholder="50">
+            </div>
+            <div class="field">
+              <label>Imagen del producto</label>
+              <input type="file" id="productImage" accept="image/*">
+            </div>
+            <button type="submit" class="btn-neon full">Agregar producto</button>
+          </form>
+        </div>
+      </div>
+ 
+      <h3 class="card-title" style="margin-top:28px;">Productos existentes</h3>
+      <div class="admin-product-grid" id="adminProductGrid"></div>
+ 
+      <h3 class="card-title" style="margin-top:28px;">🗑️ Papelera</h3>
+      <p style="color:var(--text-dim); font-size:13px; margin:-8px 0 14px;">Productos eliminados. Puedes restaurarlos.</p>
+      <div class="table-wrap" id="trashTable"></div>
+    </section>
+ 
+    <!-- PANEL DEL PROPIETARIO -->
+    <section class="tab-section" id="tab-usuarios">
+      <div class="section-head">
+        <h1>Panel del propietario</h1>
+        <p>Solicitudes de los administradores, gestión de usuarios, soporte y auditoría completa de la tienda.</p>
+      </div>
+ 
+      <h3 class="card-title">🔔 Solicitudes pendientes</h3>
+      <div class="table-wrap" id="requestsTable" style="margin-bottom:30px;"></div>
+ 
+      <h3 class="card-title">👑 Gestión de usuarios</h3>
+      <p style="color:var(--text-dim); font-size:13px; margin:-8px 0 14px;">Da o quita poderes de administrador. Nadie tiene autoridad sobre el propietario.</p>
+      <div class="table-wrap" id="usersTable" style="margin-bottom:30px;"></div>
+ 
+      <h3 class="card-title">🔧 Buzón de soporte</h3>
+      <p style="color:var(--text-dim); font-size:13px; margin:-8px 0 14px;">Críticas y sugerencias enviadas desde el botón de soporte.</p>
+      <div class="table-wrap" id="supportTable" style="margin-bottom:30px;"></div>
+ 
+      <h3 class="card-title">📜 Auditoría</h3>
+      <p style="color:var(--text-dim); font-size:13px; margin:-8px 0 14px;">Quién hizo qué y a qué hora: ventas, pedidos, aceptaciones, entregas, solicitudes y más.</p>
+      <button class="btn-ghost" style="margin-bottom:16px; border-color:var(--danger); color:var(--danger);" onclick="clearAuditLog()">🧹 Limpiar auditoría</button>
+ 
+      <div class="glass-card form-grid" style="margin-bottom:16px;">
+        <div class="field">
+          <label>Persona</label>
+          <select id="auditFilterEmail"><option value="">-- Todas las personas --</option></select>
+        </div>
+        <div class="field">
+          <label>Desde</label>
+          <input type="date" id="auditFilterFrom">
+        </div>
+        <div class="field">
+          <label>Hasta</label>
+          <input type="date" id="auditFilterTo">
+        </div>
+        <div class="field">
+          <label>&nbsp;</label>
+          <div class="action-group" style="height:100%; align-items:stretch;">
+            <button type="button" class="btn-neon" style="flex:1;" onclick="applyAuditFilter()">Filtrar</button>
+            <button type="button" class="btn-ghost" style="flex:1;" onclick="clearAuditFilter()">Limpiar</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="table-wrap" id="auditTable"></div>
+    </section>
+ 
+    <!-- CONFIGURACIÓN (owner) -->
+    <section class="tab-section" id="tab-configuracion">
+      <div class="section-head">
+        <h1>Configuración</h1>
+        <p>Nombre, "Acerca de", stock bajo, orden del menú y colores de la tienda.</p>
+      </div>
+      <div id="settingsAlert" class="alert"></div>
+ 
+      <div class="manage-grid">
+        <form id="settingsForm" class="glass-card stacked-form">
+          <div class="field">
+            <label>Nombre de la tienda</label>
+            <input type="text" id="storeName" placeholder="Nombre de tu tienda">
+          </div>
+          <div class="field">
+            <label>Contenido de "Acerca de" (lo verán todos los clientes)</label>
+            <textarea id="aboutContentInput" rows="6" placeholder="Cuéntales a tus clientes de qué se trata tu tienda..."></textarea>
+          </div>
+          <div class="field">
+            <label>Avisar cuando el stock de un producto sea igual o menor a</label>
+            <input type="number" id="lowStockThreshold" min="0" placeholder="5">
+          </div>
+          <div class="field">
+            <label>Puntos de fidelidad por cada $1.000 en un pedido entregado</label>
+            <input type="number" id="pointsPerThousand" min="0" placeholder="1">
+          </div>
+          <button type="submit" class="btn-neon full">Guardar ajustes</button>
+        </form>
+ 
+        <div class="glass-card">
+          <h3 class="card-title">🎨 Colores de la tienda</h3>
+          <div class="color-field">
+            <label>Fondo</label>
+            <div class="color-row"><input type="color" id="themeBg"><input type="text" id="themeBgHex" class="hex-input" maxlength="7"></div>
+          </div>
+          <div class="color-field">
+            <label>Tarjetas / paneles</label>
+            <div class="color-row"><input type="color" id="themeCard"><input type="text" id="themeCardHex" class="hex-input" maxlength="7"></div>
+          </div>
+          <div class="color-field">
+            <label>Acento principal (botones, enlaces)</label>
+            <div class="color-row"><input type="color" id="themeAccent"><input type="text" id="themeAccentHex" class="hex-input" maxlength="7"></div>
+          </div>
+          <div class="color-field">
+            <label>Acento secundario (degradados)</label>
+            <div class="color-row"><input type="color" id="themeAccent2"><input type="text" id="themeAccent2Hex" class="hex-input" maxlength="7"></div>
+          </div>
+          <div class="color-field">
+            <label>Color del nombre de la tienda</label>
+            <div class="color-row"><input type="color" id="themeBrand"><input type="text" id="themeBrandHex" class="hex-input" maxlength="7"></div>
+          </div>
+          <div class="color-field">
+            <label>Texto</label>
+            <div class="color-row"><input type="color" id="themeText"><input type="text" id="themeTextHex" class="hex-input" maxlength="7"></div>
+          </div>
+ 
+          <p class="card-title" style="margin-top:18px; font-size:13px;">Paletas rápidas</p>
+          <div class="palette-row" id="paletteRow"></div>
+ 
+          <button type="button" class="btn-neon full" style="margin-top:16px;" onclick="saveThemeOnly()">Guardar colores</button>
+          <button type="button" class="btn-ghost full" onclick="resetTheme()">Restablecer colores por defecto</button>
+        </div>
+      </div>
+ 
+      <div class="glass-card" style="margin-top:20px;">
+        <h3 class="card-title">↕️ Orden del menú</h3>
+        <p style="color:var(--text-dim); font-size:13px; margin:-8px 0 14px;">Usa las flechas para decidir en qué orden aparecen las secciones para todos.</p>
+        <div id="navOrderList" class="nav-order-list"></div>
+        <button type="button" class="btn-neon full" style="margin-top:14px;" onclick="saveNavOrderOnly()">Guardar orden</button>
+      </div>
+    </section>
+ 
+    <!-- ACERCA DE -->
+    <section class="tab-section" id="tab-acerca">
+      <div class="section-head">
+        <h1>Acerca de <span id="aboutStoreName"></span></h1>
+      </div>
+      <div class="glass-card about-content" id="aboutContent"></div>
+    </section>
+ 
+  </main>
+ 
+  <!-- MODAL PRODUCTO / PEDIDO -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeProductModal()">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+ 
+  <!-- MODAL EDITAR PRODUCTO -->
+  <div class="modal-overlay" id="editProductModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeEditProductModal()">&times;</button>
+      <div id="editProductContent"></div>
+    </div>
+  </div>
+ 
+  <!-- PANEL DE CHAT -->
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-panel-head">
+      <span id="chatPanelTitle">💬 Chat de soporte</span>
+      <button class="modal-close" onclick="closeChatPanel()">&times;</button>
+    </div>
+    <div class="chat-conversations" id="chatConversations"></div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <form class="chat-input-row" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Escribe un mensaje..." autocomplete="off">
+      <button type="submit" class="btn-neon" style="width:auto; padding:10px 16px;">➤</button>
+    </form>
+  </div>
+ 
+  <!-- MODAL TUS PEDIDOS (para registrar venta desde un pedido entregado) -->
+  <div class="modal-overlay" id="myOrdersModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeMyDeliveredOrders()">&times;</button>
+      <h2>📦 Tus pedidos entregados</h2>
+      <p class="modal-meta">Elige uno para llenar la venta automáticamente. Solo se muestran los que tomaste y ya están entregados.</p>
+      <div id="myDeliverableList"></div>
+    </div>
+  </div>
+ 
+  <!-- MODAL SOPORTE -->
+  <div class="modal-overlay" id="supportModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeSupportModal()">&times;</button>
+      <h2>🔧 Soporte</h2>
+      <p class="modal-meta">¿Algo no funcionó bien o tienes una sugerencia? Cuéntanos.</p>
+      <div id="supportAlert" class="alert"></div>
+      <form id="supportForm" class="order-form">
+        <div class="field">
+          <label>Tu mensaje</label>
+          <textarea id="supportMessage" rows="4" placeholder="Escribe aquí..."></textarea>
+        </div>
+        <div class="field">
+          <label>Contacto (opcional)</label>
+          <input type="text" id="supportContact" placeholder="Correo o teléfono">
+        </div>
+        <button type="submit" class="btn-neon full">Enviar</button>
+      </form>
+    </div>
+  </div>
+ 
+  <script src="app.js"></script>
+</body>
+</html>

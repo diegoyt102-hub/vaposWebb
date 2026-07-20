@@ -1,0 +1,142 @@
+[
+  {
+    "id": 14,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:21:06.526Z"
+  },
+  {
+    "id": 13,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:21:02.477Z"
+  },
+  {
+    "id": 12,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:19:36.310Z"
+  },
+  {
+    "id": 11,
+    "type": "producto_editado",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego editó el producto \"Solaris Kiwi\"",
+    "createdAt": "2026-07-20T03:18:58.008Z"
+  },
+  {
+    "id": 10,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:18:35.421Z"
+  },
+  {
+    "id": 9,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:18:27.239Z"
+  },
+  {
+    "id": 8,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:18:13.341Z"
+  },
+  {
+    "id": 7,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:10:18.657Z"
+  },
+  {
+    "id": 6,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:10:02.109Z"
+  },
+  {
+    "id": 5,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:09:29.885Z"
+  },
+  {
+    "id": 4,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:09:16.799Z"
+  },
+  {
+    "id": 3,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:09:04.882Z"
+  },
+  {
+    "id": 2,
+    "type": "ajustes_actualizados",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego actualizó la configuración de la tienda",
+    "createdAt": "2026-07-20T03:08:37.402Z"
+  },
+  {
+    "id": 1,
+    "type": "auditoria_limpiada",
+    "actorId": 1,
+    "actorName": "Diego",
+    "actorEmail": "diegoyt102@gmail.com",
+    "actorRole": "owner",
+    "detail": "Diego limpió el registro de auditoría",
+    "createdAt": "2026-07-20T03:07:42.549Z"
+  }
+]

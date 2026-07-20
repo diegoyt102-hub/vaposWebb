@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "conversationUserId": 6,
+    "fromRole": "cliente",
+    "fromName": "Maicol",
+    "text": "Me vendieron un vibrador usado",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T02:17:33.133Z"
+  },
+  {
+    "id": 2,
+    "conversationUserId": 8,
+    "fromRole": "cliente",
+    "fromName": "Maicol",
+    "text": "Hola",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:00:18.215Z"
+  },
+  {
+    "id": 3,
+    "conversationUserId": 8,
+    "fromRole": "cliente",
+    "fromName": "Maicol",
+    "text": "Lo que pasa",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:00:19.661Z"
+  },
+  {
+    "id": 4,
+    "conversationUserId": 8,
+    "fromRole": "cliente",
+    "fromName": "Maicol",
+    "text": "Es que compre un producto hace 3 mese",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:00:24.923Z"
+  },
+  {
+    "id": 5,
+    "conversationUserId": 8,
+    "fromRole": "cliente",
+    "fromName": "Maicol",
+    "text": "y no llega",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:00:29.771Z"
+  },
+  {
+    "id": 6,
+    "conversationUserId": 8,
+    "fromRole": "admin",
+    "fromName": "Gomez",
+    "text": "Caballero",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:00:43.712Z"
+  },
+  {
+    "id": 7,
+    "conversationUserId": 8,
+    "fromRole": "admin",
+    "fromName": "Gomez",
+    "text": "Como asi",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:00:45.061Z"
+  },
+  {
+    "id": 8,
+    "conversationUserId": 8,
+    "fromRole": "admin",
+    "fromName": "Gomez",
+    "text": "Comenteme mas sobre su pedido",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:00:50.044Z"
+  },
+  {
+    "id": 9,
+    "conversationUserId": 8,
+    "fromRole": "cliente",
+    "fromName": "Maicol",
+    "text": "Si",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:01:18.733Z"
+  },
+  {
+    "id": 10,
+    "conversationUserId": 8,
+    "fromRole": "cliente",
+    "fromName": "Maicol",
+    "text": "Pedi 3 vapos",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:01:20.822Z"
+  },
+  {
+    "id": 11,
+    "conversationUserId": 8,
+    "fromRole": "cliente",
+    "fromName": "Maicol",
+    "text": "y nada",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:01:21.847Z"
+  },
+  {
+    "id": 12,
+    "conversationUserId": 8,
+    "fromRole": "owner",
+    "fromName": "Diego",
+    "text": "JAJAJAJ",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:01:30.155Z"
+  },
+  {
+    "id": 13,
+    "conversationUserId": 8,
+    "fromRole": "owner",
+    "fromName": "Diego",
+    "text": "QUE PIROBO MAS SUAVE",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:01:34.289Z"
+  },
+  {
+    "id": 14,
+    "conversationUserId": 8,
+    "fromRole": "owner",
+    "fromName": "Diego",
+    "text": "AJAJAJ",
+    "readByStaff": true,
+    "createdAt": "2026-07-20T03:01:34.988Z"
+  }
+]

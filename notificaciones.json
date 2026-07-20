@@ -1,0 +1,242 @@
+[
+  {
+    "id": 30,
+    "type": "chat_nuevo",
+    "message": "Nuevo mensaje de chat de Maicol",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T03:01:21.848Z"
+  },
+  {
+    "id": 29,
+    "type": "chat_nuevo",
+    "message": "Nuevo mensaje de chat de Maicol",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T03:01:20.823Z"
+  },
+  {
+    "id": 28,
+    "type": "chat_nuevo",
+    "message": "Nuevo mensaje de chat de Maicol",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T03:01:18.734Z"
+  },
+  {
+    "id": 27,
+    "type": "chat_nuevo",
+    "message": "Nuevo mensaje de chat de Maicol",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T03:00:29.772Z"
+  },
+  {
+    "id": 26,
+    "type": "chat_nuevo",
+    "message": "Nuevo mensaje de chat de Maicol",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T03:00:24.924Z"
+  },
+  {
+    "id": 25,
+    "type": "chat_nuevo",
+    "message": "Nuevo mensaje de chat de Maicol",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T03:00:19.662Z"
+  },
+  {
+    "id": 24,
+    "type": "chat_nuevo",
+    "message": "Nuevo mensaje de chat de Maicol",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T03:00:18.216Z"
+  },
+  {
+    "id": 23,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 100 puntos por su pedido #10",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:57:03.759Z"
+  },
+  {
+    "id": 22,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 128 puntos por su pedido #9",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:56:57.649Z"
+  },
+  {
+    "id": 21,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 1225 puntos por su pedido #8",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:56:56.257Z"
+  },
+  {
+    "id": 20,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 132 puntos por su pedido #11",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:53:12.647Z"
+  },
+  {
+    "id": 19,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 6 x \"Just Watermelon ICE\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:51:31.420Z"
+  },
+  {
+    "id": 18,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 4 x \"Just Watermelon\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:51:31.414Z"
+  },
+  {
+    "id": 17,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 4 x \"Solaris Mango\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:51:31.406Z"
+  },
+  {
+    "id": 16,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 49 x \"Priv Bar Triple Apple\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:51:31.398Z"
+  },
+  {
+    "id": 15,
+    "type": "stock_bajo",
+    "message": "Stock bajo: \"Priv Bar Triple Apple\" quedó en 0 unidades",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:51:31.397Z"
+  },
+  {
+    "id": 14,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 25 puntos por su pedido #7",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:20:53.273Z"
+  },
+  {
+    "id": 13,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 1 x \"Priv Bar Triple Apple\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:20:21.769Z"
+  },
+  {
+    "id": 12,
+    "type": "chat_nuevo",
+    "message": "Nuevo mensaje de chat de Maicol",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:17:33.134Z"
+  },
+  {
+    "id": 11,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 32 puntos por su pedido #2",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:04:38.326Z"
+  },
+  {
+    "id": 10,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 150 puntos por su pedido #3",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:04:34.078Z"
+  },
+  {
+    "id": 9,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 700 puntos por su pedido #4",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:04:31.840Z"
+  },
+  {
+    "id": 8,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 22 puntos por su pedido #5",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:04:27.548Z"
+  },
+  {
+    "id": 7,
+    "type": "puntos_otorgados",
+    "message": "Maicol ganó 32 puntos por su pedido #6",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:04:25.742Z"
+  },
+  {
+    "id": 6,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 1 x \"Solaris Kiwi\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:03:57.559Z"
+  },
+  {
+    "id": 5,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 1 x \"Just Watermelon ICE\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:03:57.549Z"
+  },
+  {
+    "id": 4,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 7 x \"Vibradores\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:03:57.539Z"
+  },
+  {
+    "id": 3,
+    "type": "stock_bajo",
+    "message": "Stock bajo: \"Vibradores\" quedó en 5 unidades",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:03:57.538Z"
+  },
+  {
+    "id": 2,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 6 x \"Priv Bar Triple Mango\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:03:57.529Z"
+  },
+  {
+    "id": 1,
+    "type": "pedido_nuevo",
+    "message": "Nuevo pedido de Maicol: 1 x \"Solaris Mango\"",
+    "forRole": "admin_owner",
+    "read": true,
+    "createdAt": "2026-07-20T02:03:57.519Z"
+  }
+]

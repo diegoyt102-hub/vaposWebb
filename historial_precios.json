@@ -1,0 +1,20 @@
+[
+  {
+    "id": 2,
+    "productId": 6,
+    "productName": "Solaris Kiwi",
+    "oldPrice": 32000,
+    "newPrice": 34000,
+    "changedByName": "Diego",
+    "changedAt": "2026-07-20T03:18:58.006Z"
+  },
+  {
+    "id": 1,
+    "productId": 7,
+    "productName": "Just Watermelon",
+    "oldPrice": 22000,
+    "newPrice": 25000,
+    "changedByName": "Diego",
+    "changedAt": "2026-07-20T02:30:55.070Z"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 2,
+    "categoryId": 1,
+    "name": "Priv Bar Triple Apple",
+    "description": "Vaper desechable de alto rendimiento, sabor intenso y larga duración. 6000 puffs aprox.",
+    "price": 25000,
+    "stock": 0,
+    "image": null,
+    "createdAt": "2026-07-18T02:49:33.049Z"
+  },
+  {
+    "id": 4,
+    "categoryId": 1,
+    "name": "Solaris Mango",
+    "description": "Vaper premium con nube densa y sabor equilibrado de principio a fin. 8000 puffs aprox.",
+    "price": 32000,
+    "stock": 46,
+    "image": null,
+    "createdAt": "2026-07-18T02:49:33.049Z"
+  },
+  {
+    "id": 6,
+    "categoryId": 1,
+    "name": "Solaris Kiwi",
+    "description": "Vaper premium con nube densa y sabor equilibrado de principio a fin. 8000 puffs aprox.",
+    "price": 34000,
+    "stock": 50,
+    "image": null,
+    "createdAt": "2026-07-18T02:49:33.049Z"
+  },
+  {
+    "id": 7,
+    "categoryId": 1,
+    "name": "Just Watermelon",
+    "description": "Vaper compacto, ideal para uso diario con excelente relación calidad-precio. 5000 puffs aprox.",
+    "price": 25000,
+    "stock": 46,
+    "image": null,
+    "createdAt": "2026-07-18T02:49:33.049Z"
+  },
+  {
+    "id": 8,
+    "categoryId": 1,
+    "name": "Just Watermelon ICE",
+    "description": "Vaper compacto, ideal para uso diario con excelente relación calidad-precio. 5000 puffs aprox.",
+    "price": 22000,
+    "stock": 44,
+    "image": null,
+    "createdAt": "2026-07-18T02:49:33.049Z"
+  },
+  {
+    "id": 10,
+    "categoryId": 1,
+    "name": "Solaris Strawberry",
+    "description": "Vaper premium con nube densa y sabor equilibrado de principio a fin. 8000 puffs aprox.",
+    "price": 32000,
+    "stock": 50,
+    "image": null,
+    "createdAt": "2026-07-18T02:49:33.049Z"
+  },
+  {
+    "id": 11,
+    "categoryId": 1,
+    "name": "Priv Bar Triple Mango",
+    "description": "Vaper desechable de alto rendimiento, sabor intenso y larga duración. 6000 puffs aprox.",
+    "price": 25000,
+    "stock": 50,
+    "image": null,
+    "createdAt": "2026-07-18T02:49:33.049Z"
+  },
+  {
+    "id": 12,
+    "categoryId": 2,
+    "name": "Vibradores",
+    "description": "Esto te hara sentir en el cielo, te vendras 500 veces",
+    "price": 100000,
+    "stock": 20,
+    "image": "/uploads/1784381495641-Captura_de_pantalla_2026-07-04_202435.png",
+    "createdAt": "2026-07-18T13:31:35.696Z"
+  },
+  {
+    "id": 13,
+    "categoryId": 1,
+    "name": "Bugatti Tripple Ice",
+    "description": "Para que experimentes la moda al maximo",
+    "price": 25000,
+    "stock": 35,
+    "image": "/uploads/1784516718211-vbug.jpg",
+    "createdAt": "2026-07-20T03:05:18.213Z"
+  }
+]
