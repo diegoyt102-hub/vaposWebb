@@ -14,6 +14,6 @@ module.exports = {
   SMTP_HOST: 'smtp.gmail.com',
   SMTP_PORT: 587,
   SMTP_USER: 'diegoyt102@gmail.com',
-  SMTP_PASS: 'ijiq vndn jzxw qcvo',
+  SMTP_PASS: 'aigr qyka ttoi yneb',
   SMTP_FROM: 'Vapos Web <diegoyt102@gmail.com>'
 };
